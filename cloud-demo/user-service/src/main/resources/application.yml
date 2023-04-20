@@ -8,6 +8,22 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   application:
     name: userservice
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        # 用户设置集群,假如有上海和杭州两个集群,OrderService是在上海集群，
+        # 当上海集群的OrderService需要调用UserService时,上海集群的OrderService会优先调用上海集群的UserService,
+        # 如果上海集群找不到可用的UserService时,才会调用杭州的UserService，此时OrderService会出现一个跨集群调用的警告
+        cluster-name: SH
+#        Nacos环境隔离
+#        每个namespace都有唯一id
+#        服务设置namespace时要写id而不是名称
+#        不同namespace下的服务互相不可见
+        namespace: 492a7d5d-237b-46a1-a99a-fa8e98e4b0f9 #命名空间的ID
+#       临时实例与非临时实例
+#        临时实例宕机时，会从nacos的服务列表中剔除，而非临时实例则不会
+        ephemeral: true
 mybatis:
   type-aliases-package: cn.itcast.user.pojo
   configuration:
@@ -17,7 +33,3 @@ logging:
     cn.itcast: debug
   pattern:
     dateformat: MM-dd HH:mm:ss:SSS
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:10086/eureka/
