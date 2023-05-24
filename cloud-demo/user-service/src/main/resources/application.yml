@@ -20,10 +20,10 @@ spring:
 #        每个namespace都有唯一id
 #        服务设置namespace时要写id而不是名称
 #        不同namespace下的服务互相不可见
-        namespace: 492a7d5d-237b-46a1-a99a-fa8e98e4b0f9 #命名空间的ID
+#        namespace: 492a7d5d-237b-46a1-a99a-fa8e98e4b0f9 #命名空间的ID
 #       临时实例与非临时实例
 #        临时实例宕机时，会从nacos的服务列表中剔除，而非临时实例则不会
-        ephemeral: true
+#        ephemeral: true
 mybatis:
   type-aliases-package: cn.itcast.user.pojo
   configuration:
