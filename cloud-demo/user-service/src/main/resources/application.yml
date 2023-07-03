@@ -8,6 +8,8 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   application:
     name: userservice
+  liquibase:
+    change-log: classpath:/db/changelog-master.xml
   cloud:
     nacos:
       server-addr: localhost:8848
