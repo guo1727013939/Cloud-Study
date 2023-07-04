@@ -13,8 +13,4 @@
     </changeSet>
 
 
-    <changeSet author="your_name" id="rollback_to_previous_state">
-        <rollback changeSetAuthor="previous_author" changeSetId="previous_change_id"/>
-    </changeSet>
-
 </databaseChangeLog>
