@@ -6,7 +6,7 @@ spring:
     name: gateway
   cloud:
     nacos:
-      server-address: localhost:8848
+      server-address: nacos:8848
     gateway:
       routes:
         - id: user-service # 路由标识，必须唯一
